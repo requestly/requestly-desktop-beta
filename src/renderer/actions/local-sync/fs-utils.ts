@@ -832,11 +832,7 @@ export async function createDefaultWorkspace(): Promise<
     return createWorkspaceFolder(DEFAULT_WORKSPACE_NAME, rqDirectoryPath);
   } catch (err: any) {
     return createFileSystemError(
-      {
-        message:
-          err.message ||
-          "Something went wrong while creating the default workspace",
-      },
+      err,
       rqDirectoryPath,
       FileTypeEnum.UNKNOWN
     );
@@ -1286,6 +1282,7 @@ export function parseFileResultToApi(
     id: getIdFromPath(file.path),
     data: {
       name: record.name,
+      rank: record.rank,
       request: record.request,
     },
   };
