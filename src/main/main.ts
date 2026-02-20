@@ -207,7 +207,7 @@ const getWebAppURL = (): string => {
   }
   return isDevelopment
     ? "http://localhost:3000"
-    : "https://app.requestly.io";
+    : "https://beta.requestly.io";
 };
 
 let closingAccepted = false;
